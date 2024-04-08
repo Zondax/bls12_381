@@ -141,7 +141,7 @@ impl Fp12 {
     }
 
     /// Raises this element to p.
-    #[inline(always)]
+    #[inline(never)]
     pub fn frobenius_map(&self) -> Self {
         let c0 = self.c0.frobenius_map();
         let c1 = self.c1.frobenius_map();
@@ -170,7 +170,7 @@ impl Fp12 {
         Fp12 { c0, c1 }
     }
 
-    #[inline]
+    #[inline(never)]
     pub fn square(&self) -> Self {
         let ab = self.c0 * self.c1;
         let c0c1 = self.c0 + self.c1;
